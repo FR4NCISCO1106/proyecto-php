@@ -1,6 +1,6 @@
 <?php
   include "./conexion.php";
-  $sql="INSERT INTO usuarios VALUES ('$_POST[id_mascota]','$_POST[nombre_mascota]','$_POST[raza]', '$_POST[nombre_cliente]','$_POST[fecha_nacimiento]','$_POST[sexo]','$_POST[tipo_mascota])";
+  $sql="INSERT INTO usuarios (nombre, tipo_mascota, raza, sexo, nombre_cliente, fecha_nacimiento) VALUES ('$_POST[nombre]','$_POST[tipo_mascota]', '$_POST[raza]','$_POST[sexo]','$_POST[nombre_cliente]','$_POST[fecha_nacimiento]')";
   $result = mysqli_query($link, $sql); //ejecuto la consulta
   if (!mysqli_error($link)) {
 ?>

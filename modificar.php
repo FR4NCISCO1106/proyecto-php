@@ -8,7 +8,7 @@
 <body>
   <?php include './menu.php' ?>
   <table>
-    <tr>
+  <tr>
       <th>ID MASCOTA</th>
       <th>NOMBRE</th>
       <th>TIPO DE MASCOTA</th>
@@ -23,7 +23,7 @@
       while ($row = mysqli_fetch_assoc($result)) {
     ?>
       <tr>
-      <td><?= $row['id_mascota']; ?></td>
+        <td><?= $row['id_mascota']; ?></td>
         <td><?= $row['nombre']; ?></td>
         <td><?= $row['tipo_mascota']; ?></td>
         <td><?= $row['raza']; ?></td>

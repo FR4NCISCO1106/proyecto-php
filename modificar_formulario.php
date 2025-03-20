@@ -17,15 +17,31 @@
     $row = mysqli_fetch_assoc($result);
   ?>
   <form id="form1" name="form1" method="post" action="modificar_logica.php">
-    <label for="textfield">Nombre de la mascota: <input type="text" name="nombre_mascota" id="nombre_mascota" value="<?php print $row['nombre']; ?>" /></label>
-    <label for="textfield2">Tipo de mascota: <input type="text" name="tipo_mascota" id="tipo_mascota" value="<?php print $row['tipo_mascota']; ?>" /></label>
-    <label for="textfield3">Raza: <input type="text" name="raza" id="raza" value="<?php print $row['raza']; ?>" /></label>
-    <label for="textfield3">Sexo: <input type="text" name="sexo" id="sexo" value="<?php print $row['sexo']; ?>" /></label>
-    <label for="textfield3">Nombre del cliente: <input type="text" name="nombre_cliente" id="nombre_cliente" value="<?php print $row['nombre_cliente']; ?>" /></label>
-    <label for="textfield3">Fecha de nacimiento: <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" value="<?php print $row['fecha_nacimiento']; ?>" /></label>  
+
+    <label for="textfield2">nombre: <input type="text" name="nombre" id="nombre" value="<?php print $row['nombre']; ?>" /></label>
+    <label for="select">tipo_mascota:
+      <select name="tipo_mascota" id="tipo_mascota">
+        <option value="<?php print $row['tipo_mascota']; ?>"><?php print $row['tipo_mascota']; ?></option>
+        <option value="perro">perro</option>
+        <option value="gato">gato</option>
+        <option value="loro">loro</option>
+      </select>
     </label>
+    <label for="textfield3">raza: <input type="text" name="raza" id="raza" value="<?php print $row['raza']; ?>" /></label>
+    <label for="textfield3">sexo: <input type="text" name="sexo" id="sexo" value="<?php print $row['sexo']; ?>" /></label>
+    <legend>Sexo:</legend>
+    <?php if ($row['sexo'] == 'F') { ?>
+    <input type="radio" name="sexo" value="F" id="F" checked="checked" />
+    <?php } else { ?> <input type="radio" name="sexo" value="F" id="F" /><?php } ?>
+    <label for="F">Femenino</label>
+    <?php if ($row['sexo'] == 'M') { ?>
+    <input type="radio" name="sexo" value="M" id="M" checked="checked" />
+    <?php } else { ?> <input type="radio" name="sexo" value="M" id="M" /><?php } ?>
+    <label for="M">Masculino</label>
+    <label for="textfield3">nombre_cliente: <input type="text" name="nombre_cliente" id="nombre_cliente" value="<?php print $row['nombre_cliente']; ?>" /></label>
+    <label for="textfield3">fecha_nacimiento: <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<?php print $row['fecha_nacimiento']; ?>" /></label>
     <input type="hidden" name="oculto" id="oculto" value="<?php print $row['id_mascota']; ?>" />
     <input type="submit" name="submit" id="submit" value="Enviar">
-  </form>
+  </form> 
 </body>
 </html>
